@@ -1,57 +1,101 @@
-Sistema de Gerenciamento de Estoque para Vidraçaria
+# Stock Master - Sistema de Gerenciamento de Estoque
 
-Este projeto consiste em um software de desktop desenvolvido para automatizar e otimizar o controle de inventário de uma vidraçaria. O sistema foi criado como parte da avaliação parcial (A3) para a materia da faculdade.
+Sistema desenvolvido em Java para automação de inventário e controle de fluxo de mercadorias em vidraçarias.  
+A aplicação utiliza o padrão arquitetural MVC, banco de dados MySQL para persistência e a biblioteca iTextPDF para geração de relatórios gerenciais.
 
-O objetivo principal é substituir processos manuais por uma solução digital que ofereça maior segurança, precisão nos dados e agilidade na tomada de decisão.
+---
 
----- Funcionalidades Principais ----
-Controle de Acesso: Tela de login com validação de credenciais e sistema de bloqueio após tentativas excedidas.
+## Descrição
 
-Gestão de Produtos (CRUD): Cadastro, consulta, atualização e exclusão de itens de estoque (vidros, ferragens e alumínios).
+O Stock Master foi projetado para auxiliar no gerenciamento eficiente de estoque, permitindo o controle detalhado de produtos, movimentações e relatórios.  
+A solução foi estruturada com foco em organização de código, segurança e escalabilidade, seguindo boas práticas de desenvolvimento orientado a objetos.
 
-Movimentação de Estoque: Registro de entradas e saídas com atualização automática do saldo disponível.
+---
 
-Gestão de Cadastros: Módulos para gerenciamento de Clientes e Fornecedores.
+## Funcionalidades
 
-Relatórios Gerenciais: Geração de documentos em PDF para auditoria e conferência de estoque.
+- Arquitetura baseada no padrão MVC (Model-View-Controller)
+- Sistema de autenticação com controle de tentativas de acesso
+- Cadastro completo de produtos, clientes e fornecedores
+- Controle de estoque com definição de limites mínimo e máximo
+- Registro de movimentações (entrada e saída) com histórico
+- Geração de relatórios em PDF
+- Interface gráfica desenvolvida com Java Swing
 
-Interface Gráfica: Ambiente intuitivo desenvolvido em Java Swing.
+---
 
-Tecnologias Utilizadas
-Linguagem: Java (JDK 23)
+## Arquitetura do Projeto
 
-Arquitetura: MVC (Model-View-Controller)
+O sistema segue uma separação em camadas para melhor manutenção e escalabilidade:
 
-Interface Gráfica: Java Swing
+- **Model:** Representação das entidades do sistema
+- **View:** Interface gráfica com o usuário
+- **Controller:** Regras de negócio e controle de fluxo
+- **DAO:** Acesso e manipulação dos dados no banco
 
-Banco de Dados: MySQL
+---
 
-Bibliotecas Adicionais:
+## Estrutura de Diretórios
 
-mysql-connector-j: Driver de conexão com o banco de dados.
+```plaintext
+Sistema-Estoque/
+├── src/
+│   ├── conexao/            # Conexão com banco de dados (JDBC)
+│   ├── model/              # Entidades do sistema
+│   ├── controle/           # Regras de negócio e DAOs
+│   ├── view/               # Interfaces gráficas
+│   └── imagens/            # Recursos visuais
+├── sql/
+│   ├── criacao_banco.sql   # Estrutura do banco
+│   └── insercao_dados.sql  # Dados iniciais
+├── lib/                    # Dependências externas
+├── doc/                    # Documentação técnica
+└── README.md
 
-iTextPDF: Biblioteca para geração de relatórios.
+Requisitos
+Java JDK 23 ou superior
+MySQL Server 8.0 ou superior
+Ambiente de desenvolvimento (NetBeans, IntelliJ IDEA ou Visual Studio Code)
 
-JSON: Processamento de dados estruturados.
+Dependências utilizadas:
 
----- Estrutura do Projeto ----
-A organização dos pacotes segue o padrão de arquitetura MVC:
+mysql-connector-j
+iTextPDF
+json
+Instalação
 
-src/conexao: Classes responsáveis pela lógica de conexão com o banco de dados MySQL.
+Clone o repositório:
 
-src/model: Classes de entidade que representam os objetos do sistema (Produto, Cliente, Fornecedor).
+git clone https://github.com/seu-usuario/sistema-estoque.git
 
-src/view: Telas da interface gráfica do usuário.
+Adicione as bibliotecas localizadas na pasta lib/ ao projeto por meio da IDE utilizada.
 
-src/controle: Classes intermediárias que gerenciam a lógica de negócio entre a interface e os dados.
+Configuração do Banco de Dados
+Crie o banco de dados executando o script:
+sql/criacao_banco.sql
+(Opcional) Insira dados iniciais:
+sql/insercao_dados.sql
+Configure as credenciais de acesso no arquivo de conexão:
+private static final String USER = "seu_usuario";
+private static final String PASS = "sua_senha";
+Execução
 
-src/imagens: Recursos visuais utilizados na composição da interface.
+A aplicação deve ser iniciada a partir da classe de login:
 
----- Configuração do Banco de Dados ----
-Para rodar o projeto localmente, é necessário configurar o banco de dados MySQL:
+view.JLogin.java
+Utilização
 
-Execute o script SQL_Scripts_vFinal_criacao_...sql para criar o banco db_projetoa3 e suas tabelas.
+Após iniciar o sistema:
 
-(Opcional) Execute o script SQL_Scripts_vFinal_insercao_...sql para popular o sistema com dados de teste.
+Realize o login com um usuário válido
+Utilize o menu principal para acessar os módulos do sistema
+Cadastre produtos, clientes e fornecedores
+Registre movimentações de entrada e saída
+Gere relatórios em PDF com base nos dados cadastrados
 
-Certifique-se de ajustar as credenciais de acesso no arquivo de conexão dentro do pacote conexao.
+Considerações Técnicas:
+
+Implementação baseada no padrão DAO para isolamento da camada de dados
+Utilização de PreparedStatement para prevenção de SQL Injection
+Organização modular para facilitar manutenção e evolução do sistema
+Projeto desenvolvido com fins acadêmicos, aplicando conceitos de engenharia de software
