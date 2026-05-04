@@ -52,50 +52,80 @@ Sistema-Estoque/
 ├── doc/                    # Documentação técnica
 └── README.md
 ```
-Requisitos
-Java JDK 23 ou superior
-MySQL Server 8.0 ou superior
-Ambiente de desenvolvimento (NetBeans, IntelliJ IDEA ou Visual Studio Code)
+## Requisitos
 
-Dependências utilizadas:
+- Java JDK 23 ou superior  
+- MySQL Server 8.0 ou superior  
+- Ambiente de desenvolvimento (NetBeans, IntelliJ IDEA ou Visual Studio Code)
 
-mysql-connector-j
-iTextPDF
-json
-Instalação
+### Dependências utilizadas
+
+- mysql-connector-j  
+- iTextPDF  
+- json  
+
+---
+
+## Instalação
 
 Clone o repositório:
 
+```bash
 git clone https://github.com/seu-usuario/sistema-estoque.git
+```
 
-Adicione as bibliotecas localizadas na pasta lib/ ao projeto por meio da IDE utilizada.
+Adicione as bibliotecas localizadas na pasta `lib/` ao projeto por meio da IDE utilizada.
 
-Configuração do Banco de Dados
+---
+
+## Configuração do Banco de Dados
+
 Crie o banco de dados executando o script:
+
+```sql
 sql/criacao_banco.sql
-(Opcional) Insira dados iniciais:
+```
+
+Insira dados iniciais (opcional):
+
+```sql
 sql/insercao_dados.sql
+```
+
 Configure as credenciais de acesso no arquivo de conexão:
+
+```java
 private static final String USER = "seu_usuario";
 private static final String PASS = "sua_senha";
-Execução
+```
+
+---
+
+## Execução
 
 A aplicação deve ser iniciada a partir da classe de login:
 
+```bash
 view.JLogin.java
-Utilização
+```
+
+---
+
+## Utilização
 
 Após iniciar o sistema:
 
-Realize o login com um usuário válido
-Utilize o menu principal para acessar os módulos do sistema
-Cadastre produtos, clientes e fornecedores
-Registre movimentações de entrada e saída
-Gere relatórios em PDF com base nos dados cadastrados
+- Realize o login com um usuário válido  
+- Utilize o menu principal para acessar os módulos do sistema  
+- Cadastre produtos, clientes e fornecedores  
+- Registre movimentações de entrada e saída  
+- Gere relatórios em PDF com base nos dados cadastrados  
 
-Considerações Técnicas:
+---
 
-Implementação baseada no padrão DAO para isolamento da camada de dados
-Utilização de PreparedStatement para prevenção de SQL Injection
-Organização modular para facilitar manutenção e evolução do sistema
-Projeto desenvolvido com fins acadêmicos, aplicando conceitos de engenharia de software
+## Considerações Técnicas
+
+- Implementação baseada no padrão DAO para isolamento da camada de dados  
+- Utilização de `PreparedStatement` para prevenção de SQL Injection  
+- Organização modular para facilitar manutenção e evolução do sistema  
+- Projeto desenvolvido com fins acadêmicos, aplicando conceitos de engenharia de software  
