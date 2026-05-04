@@ -51,7 +51,7 @@ Sistema-Estoque/
 ├── lib/                    # Dependências externas
 ├── doc/                    # Documentação técnica
 └── README.md
-
+```
 Requisitos
 Java JDK 23 ou superior
 MySQL Server 8.0 ou superior
